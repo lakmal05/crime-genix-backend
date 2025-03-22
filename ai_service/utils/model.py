@@ -9,12 +9,12 @@ def load_model():
     encoder = joblib.load("models/encoder.pkl")
     return rf_model, scaler, encoder
 
-
+ 
 # Preprocess input DNA sequence (convert to numerical data, scale, etc.)
 def preprocess_input_data(dna_sequence):
     """
     Convert DNA sequence into numerical representation.
-    Example: "AGCT" → [1, 3, 2, 4]
+    Example: "AGCT" → [1, 3, 2, 4]  
     """
     # Define mapping for DNA bases to numerical values
     DNA_MAPPING = {
