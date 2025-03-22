@@ -12,7 +12,7 @@ DNA_MAPPING = {
     'B': 12, 'D': 13, 'H': 14, 'V': 15, 'N': 16
 }
 
-MAX_DNA_LENGTH = 100  # Adjust based on dataset
+MAX_DNA_LENGTH = 100 
 
 # Function to convert DNA sequence to numerical values
 def encode_dna_sequence(sequence):

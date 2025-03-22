@@ -27,7 +27,7 @@ export class SuspicionService {
       dna_sequence: data.dna,
     };
     const response = await axios.post(
-      'http://localhost:5000/predict',
+      'http://127.0.0.1:5000/predict',
       requestBody,
     );
     console.log(response, 'dnaa');

@@ -23,7 +23,7 @@ export class SuspicionController {
     return this.suspicionService.findAll();
   }
 
-  @Get('find-by-id' + ':/id')
+  @Get('find-by-id/:id')
   findById(@Param('id') id: string) {
     return this.suspicionService.findById(id);
   }
