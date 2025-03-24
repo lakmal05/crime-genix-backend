@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int         @id @default(autoincrement()) // Primary key with auto-increment
+  email     String      @unique // Email should be unique
+  password  String // Password field, should be hashed before saving to DB
+  firstName String // User's first name
+  lastName  String // User's last name
+  createdAt DateTime    @default(now()) // Timestamp of user creation
+  updatedAt DateTime    @updatedAt // Timestamp of last update
+  Suspicion Suspicion[]
+}
+
+model Suspicion {
+  id                  Int      @id @default(autoincrement()) // Primary key with auto-increment
+  name                String // User's last name
+  age                 Int
+  nic                 String
+  description         String?  @db.Text
+  pastCriminalRecords String   @db.Text
+  gender              String
+  strVector           Json
+  metaData            Json?
+  dna                 String   @db.Text
+  createdBy           User?    @relation(fields: [createdById], references: [id])
+  files               File[]
+  createdAt           DateTime @default(now()) // Timestamp of user creation
+  updatedAt           DateTime @updatedAt // Timestamp of last update
+  createdById         Int?
+}
+
+model File {
+  id          Int        @id @default(autoincrement())
+  fileName    String?
+  fileUrl     String
+  Suspicion   Suspicion? @relation(fields: [suspicionId], references: [id])
+  suspicionId Int?
+}
+
+// name: fullName,
+// contactNo: contactNo,
+// age: age,
+// NICNumber: NICNumber,
+// description: description,
+// pastCriminalRecords: pastCriminalRecords,
+// gender: gender,
+// perpetratorProfileImgs: perpetratorProfileImgs,
+// DNASequence: DNASequence,
