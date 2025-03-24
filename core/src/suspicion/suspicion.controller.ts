@@ -27,7 +27,7 @@ export class SuspicionController {
   findById(@Param('id') id: string) {
     return this.suspicionService.findById(id);
   }
-
+      
   @Put('update')
   update(@Body() data: any) {
     return this.suspicionService.update(data);
