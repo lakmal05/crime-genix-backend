@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
 import { SuspicionModule } from './suspicion/suspicion.module';
 import { FileModule } from './file/file.module';
+  
 
 @Module({
   imports: [GptModule, UserModule, SuspicionModule, PrismaModule, FileModule],
