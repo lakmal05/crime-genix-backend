@@ -23,7 +23,8 @@ model User {
   updatedAt DateTime    @updatedAt // Timestamp of last update
   Suspicion Suspicion[]
 }
-
+   
+   
 model Suspicion {
   id                  Int      @id @default(autoincrement()) // Primary key with auto-increment
   name                String // User's last name
