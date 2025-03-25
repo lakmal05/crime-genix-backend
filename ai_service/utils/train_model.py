@@ -24,7 +24,7 @@ def encode_dna_sequence(sequence):
     else:
         numeric_sequence += [0] * (MAX_DNA_LENGTH - len(numeric_sequence))
 
-    return numeric_sequence
+    return numeric_sequence  
 
 def train_and_save_model():
     # Load dataset
