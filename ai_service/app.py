@@ -34,7 +34,7 @@ DNA_MAPPING = {
 }
 
 MAX_DNA_LENGTH = 100  # Should match training
-
+    
 
 # Convert DNA sequence to numerical features
 def preprocess_input_data(dna_sequence):
